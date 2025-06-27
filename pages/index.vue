@@ -71,8 +71,23 @@ if (books.value) {
 }
 
 //function for read/unread toggle
-function toggleRead(index) {
-  books.value[index].is_read = !books.value[index].is_read;
+async function toggleRead(index) {
+  const book = books.value[index];
+  console.log("Toggling read status for:", book.id);
+  try {
+    const res = await fetch(`/api/books/${book.id}/toggle`, {
+      method: "PUT",
+    });
+    console.log("Response status:", res.status);
+
+    if (!res.ok) throw new Error("Failed to toggle read status");
+
+    const updatedBook = await res.json();
+    books.value[index].is_read = updatedBook.is_read;
+  } catch (error) {
+    alert("Error toggling read status.");
+    console.error(error);
+  }
 }
 
 //function to delete a book

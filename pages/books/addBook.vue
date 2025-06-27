@@ -46,7 +46,7 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import { bookSchema } from "../validations/book";
+import { bookSchema } from "../../validations/book";
 
 const form = reactive({
   title: "",
