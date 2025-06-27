@@ -43,6 +43,7 @@
           >
             Delete
           </button>
+
           <button
             class="text-purple-600 hover:underline"
             @click="toggleRead(index)"
@@ -59,13 +60,40 @@
 </template>
 
 <script setup>
+//fetch the books data from the API
 const { data: books } = await useFetch("/api/books/books");
 
+// Sort books by title
+if (books.value) {
+  books.value.sort((a, b) =>
+    a.title.localeCompare(b.title, undefined, { sensitivity: "base" })
+  );
+}
+
+//function for read/unread toggle
 function toggleRead(index) {
   books.value[index].is_read = !books.value[index].is_read;
 }
 
-function deleteBook(index) {
-  books.value.splice(index, 1);
+//function to delete a book
+async function deleteBook(index) {
+  const book = books.value[index];
+  const confirmed = confirm(`Are you sure you want to delete "${book.title}"?`);
+
+  if (!confirmed) return;
+
+  try {
+    const res = await fetch(`/api/books/${book.id}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) throw new Error("Failed to delete");
+
+    books.value.splice(index, 1);
+    alert("Book deleted successfully.");
+  } catch (error) {
+    alert("An error occurred while deleting the book.");
+    console.error(error);
+  }
 }
 </script>
