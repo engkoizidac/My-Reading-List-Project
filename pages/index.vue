@@ -32,7 +32,7 @@
         <div class="space-x-2">
           <NuxtLink
             v-if="book.id"
-            :to="`/books/${book.id}`"
+            :to="`/books/${book.id}.editBook`"
             class="text-blue-600 hover:underline"
           >
             Edit
