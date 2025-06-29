@@ -7,14 +7,10 @@
       <div class="mb-6 flex justify">
         <NuxtLink
           to="/books/addbook"
-          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 inline-flex items-center gap-2"
         >
-          <UButton
-            color="green"
-            variant="solid"
-            label="Add Book"
-            icon="i-heroicons-plus"
-          />
+          <Icon name="i-heroicons-plus" />
+          <span>Add Book</span>
         </NuxtLink>
       </div>
 
@@ -82,7 +78,6 @@
           </template>
         </UCard>
       </div>
-
       <UModal v-model:open="open">
         <template #title> Delete Book Confirmation </template>
 
@@ -95,9 +90,8 @@
             <p class="text-xl font-semibold mb-4">
               Are you sure you want to delete:
             </p>
-            <p class="text-lg text-amber-600">
-              {{ books[bookToDelete.value]?.title || "" }} by
-              {{ books[bookToDelete.value]?.author || "" }}
+            <p v-if="selectedBook">
+              {{ selectedBook.title }} by {{ selectedBook.author }}
             </p>
 
             <div class="mt-6 flex justify-center gap-4">
@@ -108,7 +102,7 @@
                 class="hover:underline"
                 @click="deleteBook"
               />
-              <UButton label="Cancel" @click="open.value = false" />
+              <UButton label="Cancel" @click="closeModal" />
             </div>
           </div>
         </template>
@@ -167,6 +161,15 @@ function handleDeleteClick(index) {
   open.value = true;
 }
 
+const selectedBook = computed(() => {
+  if (!books.value || bookToDelete.value === null) return null;
+  return books.value[bookToDelete.value] || null;
+});
+
+function closeModal() {
+  open.value = false;
+}
+
 async function deleteBook() {
   const index = bookToDelete.value;
   if (index === null) return;
@@ -179,15 +182,14 @@ async function deleteBook() {
 
     if (!res.ok) throw new Error("Failed to delete");
 
-    books.value.splice(index, 1);
-    bookToDelete.value = null;
-    open.value = false; // ✅ hide modal
-
     toast.add({
       title: `Book successfully deleted!`,
       color: "success",
       id: "modal-success",
     });
+    books.value.splice(index, 1);
+    bookToDelete.value = null;
+    open.value = false;
   } catch (error) {
     alert("An error occurred while deleting the book.");
     console.error(error);
