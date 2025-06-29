@@ -13,7 +13,7 @@ Applicant
 
 ## Steps how to run
 
-1. Clone the project repository: https://github.com/engkoizidac/My-Reading-List-Project.git
+1. Clone or Download ZIP the project repository: https://github.com/engkoizidac/My-Reading-List-Project.git
 
 2. Install dependencies:
 
