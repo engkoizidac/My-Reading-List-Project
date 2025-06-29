@@ -6,6 +6,8 @@ tools:
 
 NuxtJS, SQLite, Prisma, NuxtJS UI Library and Tailwind
 
+Code Editor: VSCode
+
 developed by:
 
 LESTER JOHN PAUL CADIZ
@@ -15,7 +17,18 @@ Applicant
 
 1. Clone the project repository: https://github.com/engkoizidac/My-Reading-List-Project.git
 
-2. Install dependencies:
+- Clone:
+
+  ```bash
+  # npm
+  git clone https://github.com/engkoizidac/My-Reading-List-Project.git
+  ```
+
+- Download ZIP:
+
+  - Unzip and Open in VSCode Editor
+
+2. Open terminal and install dependencies:
 
 ```bash
 # npm
