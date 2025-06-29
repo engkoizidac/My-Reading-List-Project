@@ -10,8 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify/utils": "^2.3.0",
+    "@nuxt/icon": "^1.15.0",
     "@nuxt/ui": "^3.2.0",
-    "@prisma/client": "^6.5.0",
+    "@prisma/client": "^6.10.1",
     "nuxt": "^3.17.5",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1",
@@ -20,6 +22,6 @@
   "devDependencies": {
     "@iconify/json": "^2.2.353",
     "@nuxtjs/tailwindcss": "^7.0.0-beta.0",
-    "prisma": "6.5"
+    "prisma": "^6.10.1"
   }
 }
