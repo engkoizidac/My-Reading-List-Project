@@ -17,32 +17,28 @@ Applicant
 
 1. Clone or Download ZIP the project repository: https://github.com/engkoizidac/My-Reading-List-Project.git
 
-- Clone:
-
-  ```bash
-  # npm
-  git clone https://github.com/engkoizidac/My-Reading-List-Project.git
-  ```
-
-- Download ZIP:
-
-  - Unzip and Open in VSCode Editor
-
-2. Open terminal and install dependencies:
+2. Install dependencies:
 
 ```bash
 # npm
 npm install
 ```
 
-3. Run the project:
+3. Generate prisma
+
+```bash
+# npm
+npx prisma generate
+```
+
+4. Run the project:
 
 ```bash
 # npm
 npm run dev
 ```
 
-4. DONE.
+5. DONE.
 
 ## Answers:
 
