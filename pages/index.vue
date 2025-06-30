@@ -51,20 +51,6 @@
                   {{ book.is_read ? "Mark Unread" : "Mark Read" }}
                 </UButton>
 
-                <NuxtLink
-                  v-if="book.id"
-                  :to="`/books/${book.id}.editBook`"
-                  class="text-blue-600"
-                >
-                  <UButton
-                    color="green"
-                    variant="solid"
-                    label="Edit"
-                    icon="i-heroicons-pencil-square"
-                    class="hover:text-blue-400 hover:underline"
-                  />
-                </NuxtLink>
-
                 <UButton
                   color="red"
                   variant="solid"
