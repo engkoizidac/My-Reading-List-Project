@@ -17,28 +17,28 @@ Applicant
 
 1. Clone or Download ZIP the project repository: https://github.com/engkoizidac/My-Reading-List-Project.git
 
-2. Install dependencies:
+2. Open in editor (VSCode or others)
+
+3. Install dependencies in terminal:
 
 ```bash
 # npm
 npm install
 ```
 
-3. Generate prisma
+4. Generate prisma
 
 ```bash
 # npm
 npx prisma generate
 ```
 
-4. Run the project:
+5. Run the project:
 
 ```bash
 # npm
 npm run dev
 ```
-
-5. DONE.
 
 ## Answers:
 
