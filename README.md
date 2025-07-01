@@ -4,7 +4,7 @@ A web application to help users manage a personal reading list. Users should be 
 
 tools:
 
-NuxtJS, SQLite, Prisma, NuxtJS UI Library and Tailwind
+NuxtJS, SQLite, Prisma, Zod, NuxtJS UI Library and Tailwind
 
 Code Editor: VSCode
 
